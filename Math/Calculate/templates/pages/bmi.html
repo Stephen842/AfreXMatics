@@ -1,0 +1,130 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+        <meta name = 'viewport' content = 'width=device-width, initial-scale = 1'/>
+        <meta http-equiv='content-type' content='text/html; charset = utf-8'/>
+        <meta name = 'robots' content = 'index, follow'>
+
+        <link rel = 'stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+        <link rel = 'stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        
+        <!-- TailwindCSS Compilation -->
+        <link rel="stylesheet" href="{% static 'src/npx tailwindcss -i ./static/src/input.css -o ./static/src/output.cssoutput.css' %}">
+        <link rel="stylesheet" href="{% static 'src/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        
+        <title> {{ title }}</title>
+    </head>
+
+
+    <body class='bg-gray-300'>
+        <div class='flex'>
+            <!-- Toggle Sidebar Button for mobile -->
+            <button class="toggle-sidebar">Toggle Sidebar</button>
+
+            <!-- Sidebar -->
+            <div class='sidebar bg-green-800 h-screen p-4 md:flex flex-col items-center text-gray-100'>
+                <div class='mt-16 md:8 mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/external-smashingstocks-thin-outline-smashing-stocks/67/external-Calculator-engineering-smashingstocks-thin-outline-smashing-stocks.png" alt="calculator" />
+                    <p class='pl-4'>Calculator</p>
+                </div>
+                <div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/euro-exchange.png" alt="euro-exchange" />
+                    <p class='pl-4'> CurrencyX </p>
+                </div>
+                <a href="{%url 'calculate_bmi'%}"><div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/color/48/bmi.png" alt="bmi" />
+                    <p class='pl-4'> BMI Calc </p>
+                </div></a>
+                <div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/cotton/64/conversion-currencies.png" alt="conversion-currencies" />
+                    <p class='pl-4'> QuickConvert </p>
+                </div>
+            </div>
+    
+            <!-- Main Content -->
+            <div class='flex-grow min-h-screen flex items-center justify-center p-4 mt-12 md:mt-2'>
+                <div class='bg-green-900 w-full max-w-lg rounded-xl shadow-lg p-8 font-[Roboto] text-gray-200'>
+                    <h2 class='text-xs absolute -mt-6 -pr-8'>AfreXMatics</h2>
+                    <h2 class='text-4xl text-center'>Calculate Your</h2>
+                    <h2 class='text-4xl text-center text-[#FAF0E6] mt-2'>Body Mass Index</h2>
+    
+                    <!-- Measurement System Selector -->
+                    <div class='flex justify-center mt-8 space-x-8 text-gray-700'>
+                        <button class='p-2 py-2 px-16 font-semibold bg-green-500 rounded-xl transition duration-300 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none' tabindex="0">Standard</button>
+                        <button class='p-2 py-2 px-16 font-semibold bg-green-500 rounded-xl transition duration-300 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none' tabindex="0">Metric</button>
+                    </div>
+    
+                    <!-- Gender Selection -->
+                    <div class='flex justify-center mt-8 space-x-8'>
+                        <div class='p-2 px-12 py-12 bg-gray-300 flex flex-col items-center justify-center rounded-xl cursor-pointer hover:bg-gray-100 focus:bg-gray-100 focus:outline-none' tabindex="0">
+                            <i class='bx bx-male text-8xl hover:text-green-800 focus:text-green-800' tabindex="0"></i>
+                            <h2 class='text-green-800'> Male </h2>
+                        </div>
+                        <div class='p-2 px-12 py-12 bg-gray-300 flex flex-col items-center justify-center rounded-xl cursor-pointer hover:bg-gray-100 focus:bg-gray-100 focus:outline-none' tabindex="0">
+                            <i class='bx bx-female text-8xl hover:text-green-800 focus:text-green-800' tabindex="0"></i>
+                            <h2 class='text-green-800'> Female </h2>
+                        </div>
+                    </div>
+    
+                    <!-- Input Fields -->
+                    <div class='mt-8 space-y-6 text-center'>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class='flex flex-row space-x-8 justify-evenly mb-12'>
+                                <label for='weight' class='text-lg items-center'>Weight in kg</label>
+                                <div class='relative w-1/4'>
+                                    <div class='bg-[#FAF0E6] rounded-lg shadow-md text-gray-100'>
+                                        {{ form.weight|add_class:'w-3/4 bg-green-500 rounded-xl py-2 outline-none transition duration-300 placeholder-gray-200'|attr:'placeholder: 0 ' }}
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class='flex flex-row space-x-8 justify-evenly mb-12'>
+                                <label for='height' class='text-lg'>Height in m</label>
+                                <div class='relative w-1/4'>
+                                    <div class='bg-[#FAF0E6] rounded-lg shadow-md text-gray-100'>
+                                        {{ form.height|add_class:'w-3/4 bg-green-500 rounded-xl p-2 outline-none transition duration-300 placeholder-gray-200'|attr:'placeholder: 0 ' }}
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class='flex flex-row space-x-8 justify-evenly mb-12'>
+                                <label for='age' class='text-lg'>Age</label>
+                                <div class='relative w-1/4'>
+                                    <input type='number' min='0' class='w-3/4 p-2 ml-8 rounded-xl bg-green-500 text-gray-100 shadow-md outline-none transition duration-300 placeholder-gray-200' placeholder='0'/>
+                                </div>
+                            </div>
+
+                            <!-- Calculate Button -->
+                            <div class='mt-10 flex justify-center'>
+                                <button type="submit" class='bg-gray-100 text-green-900 text-xl font-bold py-4 px-12 rounded-lg'>
+                                    Calculate
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <footer class='mx-auto'>
+            <h2 class='flex justify-center item-center text-sm text-green-900 mb-2 ml-32'> &copy;AfreX.org {% now 'Y'%}</h2>
+        </footer>
+
+        <script>
+            // Toggle Sidebar
+            const toggleSidebar = document.querySelector('.toggle-sidebar');
+            const sidebar = document.querySelector('.sidebar');
+
+            toggleSidebar.addEventListener('click', () => {
+             sidebar.classList.toggle('active');
+            });
+        </script>
+    </body>    
+</html>
