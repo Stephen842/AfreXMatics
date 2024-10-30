@@ -46,42 +46,6 @@
                     <p class='pl-4'> QuickConvert </p>
                 </div>
             </div>
-    
-            <!-- Main Content -->
-            <div class='flex-grow min-h-screen flex items-center justify-center p-4 mt-12 md:mt-2'>
-                <div class='bg-green-900 w-full max-w-lg rounded-xl shadow-lg p-8 font-[Roboto] text-gray-200'>
-                    <h2 class='text-xs absolute -mt-6 -pr-8'>AfreXMatics</h2>
-                    <h2 class='text-2xl md:text-4xl text-center'>Your BMI Results</h2>
-    
-                    <!-- Gender Selection -->
-                    <div class='flex justify-center mt-8'>
-                        <div class='p-2 px-12 py-8 bg-gray-400 flex flex-col items-center justify-center rounded-xl cursor-pointer'>
-                            <h2 class='text-xl md:text-2xl mb-2'> Your Current BMI: </h2>
-                            <h2 class='text-green-800 text-2xl mb-2'> {{ bmi }}</h2>
-                            <h2 class='text-green-800 text-xl mb-8'> {{ category }} </h2>
-                            <p class='text-sm text-red-500'><a href="{% url 'calculate_bmi' %}">Calculate Again</a></p>
-                        </div>
-                    </div>
-                    <div class='mt-8'>
-                        <img src="{% static 'analysis.png'%}" alt='Weight Reading'/>
-                    </div>
-                    <div class='text-sm p-2 text-gray-300'>
-                        <h2 class='text-center font-bold mt-8'>Your recommended healthy weight range 54 - 72 kg *</h2>
-                        <p class='mt-4 mb-4 '>
-                            BMI is a useful metric for those 18 and older, but it’s just an estimate and doesn’t account for age,
-                            ethnicity, gender, or body composition. We recommend measuring your waist and considering
-                            other risk factors.
-                        </p>
-                        <p class='mt-4 mb-4 '>
-                            Consult your doctor, a qualified dietitian, or a healthcare professional regarding 
-                            your weight.
-                        </p>
-                        <p class='mt-4 mb-2 '>
-                            This calculator is not suitable for pregnant women or children.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     
         <footer class='mx-auto'>

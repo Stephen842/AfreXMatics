@@ -3,6 +3,13 @@ from .forms import BmiForm
 
 # Create your views here.
 
+#This Function is for the currency converter features
+def currencyx(request):
+    context = {
+        'title': 'QuickConvert: Real-Time Rates',
+    }
+    return render(request, 'pages/currency.html', context)
+
 # This function is to calculate the Body Mass Index of a person
 def calculate_bmi(request):
     bmi = None
