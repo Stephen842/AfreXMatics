@@ -1,13 +1,42 @@
 from django.shortcuts import render, redirect
-from .forms import BmiForm
+from .forms import BmiForm, CurrencyConverterForm
+from .services import get_currency_choices, get_exchange_rate
+from decimal import Decimal
+
 
 # Create your views here.
 
-#This Function is for the currency converter features
-def currencyx(request):
+#This Function View is for the currency converter feature of this entire program
+def currency_convert(request):
+    result = None
+
+    if request.method == 'POST':
+        form = CurrencyConverterForm(request.POST)
+        if form.is_valid():
+            amount = form.cleaned_data['amount']
+            from_currency = form.cleaned_data['from_currency']
+            to_currency = form.cleaned_data['to_currency']
+
+            # Get the exchange rate using the caching function
+            exchange_rate = get_exchange_rate(from_currency, to_currency)
+
+            if exchange_rate is not None:
+                # Ensure exchange_rate is Decimal
+                exchange_rate = Decimal(exchange_rate)
+                
+                result = Decimal(amount) * exchange_rate # This is the calculated converted amount
+            else:
+                result = 'Error fetching exchange rate.'
+    else:
+        form = CurrencyConverterForm()
+
     context = {
+        'form': form,
+        'result': result,
+        'currency_choices': get_currency_choices(),
         'title': 'QuickConvert: Real-Time Rates',
     }
+        
     return render(request, 'pages/currency.html', context)
 
 # This function is to calculate the Body Mass Index of a person
