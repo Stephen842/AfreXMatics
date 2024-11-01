@@ -1,5 +1,6 @@
 from django.core.cache import cache
 import requests
+from django.utils.safestring import mark_safe
 
 # This is a list of all present country code 
 COUNTRY_CODES = {
@@ -341,7 +342,7 @@ def fetch_currency_choices_from_api():
         for code, name in data.get('symbols',{}).items():
             country_code = COUNTRY_CODES.get(code, None) # Get the country code if it exist
             flag_url = COUNTRY_FLAGS.get(code, None)  # Get the flag URL
-            currency_choices.append((code, name, country_code, flag_url))
+            currency_choices.append((code, name, country_code, mark_safe(flag_url)))
 
         return currency_choices
     except requests.RequestException as e:

@@ -50,7 +50,7 @@
             <!-- Main Content -->
             <div class="flex-grow min-h-screen flex items-center justify-center mt-8 md:mt-2 px-4">
                 <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 w-md max-w-md rounded-3xl shadow-xl text-gray-200">
-                    <div class="rounded-t-3xl p-8 shadow-2xl">
+                    <div class="rounded-t-3xl p-8 transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-3xl shadow-2xl">
                         <form method="post" action="{% url 'currency_converter' %}" class="space-y-6 bg-white shadow-xl rounded-lg p-4">
                             {% csrf_token %}
                             <div class="grid grid-cols-1 gap-3">
@@ -58,36 +58,43 @@
                                     {{ form.from_currency|add_class:"w-32 rounded-md py-2 px-3 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white" }}
                                     <div>{{ form.amount|add_class:"w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white"}}</div>
                                 </div>
-                                
                                 <div class="flex flex-row justify-evenly gap-8 mt-12">
                                     <div>{{ form.to_currency|add_class:"w-32 rounded-md py-2 px-3 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white" }}</div>
-                                    <div>{{ form.amount|add_class:"w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white"}}</div>
+                                    <div>
+                                        <input id=amount2 class='w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white'/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex justify-center mt-6">
-                                <button type="submit" class="bg-green-600 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Convert</button>
+                                <button type="submit" class="bg-green-600 mr-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Convert</button>
+                                <button type="button" id="swap-button" class="bg-green-600 ml-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Swap</button>
+                            </div>
+                            <div class="mx-auto w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-xl focus:ring-2 focus:ring-offset-1 focus:ring-white">
+                                <h2 class='text-center'> {{result|floatformat:2}} </h2>
                             </div>
                         </form>
                     </div>
+                    
             
-                    <div class="bg-white rounded-b-3xl p-3 shadow-md mt-3">
-                        <div class="grid grid-cols-3 gap-3 text-center text-base font-bold text-green-800">
-                            <button type="button" onclick="appendNumber(1)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">7</button>
-                            <button type="button" onclick="appendNumber(2)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">8</button>
-                            <button type="button" onclick="appendNumber(3)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">9</button>
+                    <div class="bg-white rounded-b-3xl p-3 shadow-md mt-3 transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-2xl">
+                        <div class="grid grid-cols-3 gap-3 text-center text-base font-bold text-green-800 hover:-translate-y-1">
+                            <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">7</button>
+                            <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">8</button>
+                            <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">9</button>
                             <button type="button" onclick="appendNumber(4)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">4</button>
                             <button type="button" onclick="appendNumber(5)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">5</button>
                             <button type="button" onclick="appendNumber(6)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">6</button>
-                            <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">1</button>
-                            <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">2</button>
-                            <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">3</button>
+                            <button type="button" onclick="appendNumber(1)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">1</button>
+                            <button type="button" onclick="appendNumber(2)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">2</button>
+                            <button type="button" onclick="appendNumber(3)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">3</button>
                             <button type="button" onclick="appendNumber(0)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">0</button>
                             <button type="button" onclick="appendNumber('.')" class="bg-green-50 hover:bg-green-100 rounded-md py-2">.</button>
-                            <button type="button" onclick="clearAmount()" class="bg-red-200 hover:bg-red-300 rounded-md py-2">
+                            <button type="button" onclick="backspaceDelete()" class="bg-red-200 hover:bg-red-300 rounded-md py-2">
                                 <i class="bi bi-x-square text-xl"></i>
                             </button>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             
@@ -117,10 +124,24 @@
                 amountField.value += num;
             }
 
-            // Function to clear the amount input field
-            function clearAmount() {
-                document.getElementById('amount').value = '';
+            function backspaceDelete() {
+                const amountField = document.getElementById('amount');
+                amountField.value = amountField.value.slice(0, -1); // Remove the last character
             }
+        </script>
+
+        <!--This is for the swapping features-->
+        <script>
+            document.getElementById('swap-button').addEventListener('click', function() {
+                // Get the currency select elements
+                var fromCurrency = document.querySelector('select[name="from_currency"]');
+                var toCurrency = document.querySelector('select[name="to_currency"]');
+
+                // Swap the selected values
+                var temp = fromCurrency.value;
+                fromCurrency.value = toCurrency.value;
+                toCurrency.value = temp;
+            });
         </script>
     </body>    
 </html>
