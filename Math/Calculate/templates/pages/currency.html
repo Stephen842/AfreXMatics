@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,7 @@
     </head>
 
 
-    <body class='bg-gray-300'>
+    <body class='bg-gray-300 max-h-screen'>
         <div class='flex'>
             <!-- Toggle Sidebar Button for mobile -->
             <button class="toggle-sidebar">Toggle Sidebar</button>
@@ -45,6 +46,10 @@
                     <img width="30" height="30" src="https://img.icons8.com/cotton/64/conversion-currencies.png" alt="conversion-currencies" />
                     <p class='pl-4'> QuickConvert </p>
                 </div>
+                <a href='http://pythogenius.pythonanywhere.com/weather'><div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-Weather-android-app-flatart-icons-outline-flatarticons.png" alt="external-Weather-android-app-flatart-icons-outline-flatarticons"/>
+                    <p class='pl-4'> WeatherNow </p>
+                </div></a>
             </div>
 
             <!-- Main Content -->
@@ -53,6 +58,9 @@
                     <div class="rounded-t-3xl p-8 transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-3xl shadow-2xl">
                         <form method="post" action="{% url 'currency_converter' %}" class="space-y-6 bg-white shadow-xl rounded-lg p-4">
                             {% csrf_token %}
+                            <div class='-mt-6'>
+                                <h2 class='text-center text-xs text-green-800 -mt-8'>AfreXMatics</h2>
+                            </div>
                             <div class="grid grid-cols-1 gap-3">
                                 <div class="flex flex-row justify-evenly gap-8">
                                     {{ form.from_currency|add_class:"w-32 rounded-md py-2 px-3 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white" }}
@@ -70,13 +78,13 @@
                                 <button type="button" id="swap-button" class="bg-green-600 ml-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Swap</button>
                             </div>
                             <div class="mx-auto w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-xl focus:ring-2 focus:ring-offset-1 focus:ring-white">
-                                <h2 class='text-center'> {{result|floatformat:2}} </h2>
+                                <h2 class='text-center'> {{result|floatformat:2|intcomma}} </h2>
                             </div>
                         </form>
                     </div>
                     
             
-                    <div class="bg-white rounded-b-3xl p-3 shadow-md mt-3 transition-transform duration-300 transform hover:-translate-y-1 hover:shadow-2xl">
+                    <div class="bg-white rounded-b-3xl p-3 shadow-md mt-3 transition-transform duration-300 transform hover:-translate-y-0 hover:shadow-2xl">
                         <div class="grid grid-cols-3 gap-3 text-center text-base font-bold text-green-800 hover:-translate-y-1">
                             <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">7</button>
                             <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">8</button>

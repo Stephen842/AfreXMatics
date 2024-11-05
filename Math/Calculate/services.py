@@ -148,161 +148,159 @@ COUNTRY_CODES = {
 
 # This is a list of all present country flags
 COUNTRY_FLAGS = {
-    'AED': 'https://flagcdn.com/ae.svg',  # United Arab Emirates Dirham
-    'AFN': 'https://flagcdn.com/af.svg',  # Afghan Afghani
-    'ALL': 'https://flagcdn.com/al.svg',  # Albanian Lek
-    'AMD': 'https://flagcdn.com/am.svg',  # Armenian Dram
-    'ANG': 'https://flagcdn.com/an.svg',  # Netherlands Antillean Guilder
-    'AOA': 'https://flagcdn.com/ao.svg',  # Angolan Kwanza
-    'ARS': 'https://flagcdn.com/ar.svg',  # Argentine Peso
-    'AUD': 'https://flagcdn.com/au.svg',  # Australian Dollar
-    'AWG': 'https://flagcdn.com/aw.svg',  # Aruban Florin
-    'AZN': 'https://flagcdn.com/az.svg',  # Azerbaijani Manat
-    'BAM': 'https://flagcdn.com/ba.svg',  # Bosnia and Herzegovina Convertible Mark
-    'BBD': 'https://flagcdn.com/bb.svg',  # Barbadian Dollar
-    'BDT': 'https://flagcdn.com/bd.svg',  # Bangladeshi Taka
-    'BGN': 'https://flagcdn.com/bg.svg',  # Bulgarian Lev
-    'BHD': 'https://flagcdn.com/bh.svg',  # Bahraini Dinar
-    'BIF': 'https://flagcdn.com/bi.svg',  # Burundian Franc
-    'BMD': 'https://flagcdn.com/bm.svg',  # Bermudian Dollar
-    'BND': 'https://flagcdn.com/bn.svg',  # Brunei Dollar
-    'BOB': 'https://flagcdn.com/bo.svg',  # Bolivian Boliviano
-    'BRL': 'https://flagcdn.com/br.svg',  # Brazilian Real
-    'BSD': 'https://flagcdn.com/bs.svg',  # Bahamian Dollar
-    'BTN': 'https://flagcdn.com/bt.svg',  # Bhutanese Ngultrum
-    'BWP': 'https://flagcdn.com/bw.svg',  # Botswana Pula
-    'BYN': 'https://flagcdn.com/by.svg',  # Belarusian Ruble
-    'BZD': 'https://flagcdn.com/bz.svg',  # Belize Dollar
-    'CAD': 'https://flagcdn.com/ca.svg',  # Canadian Dollar
-    'CDF': 'https://flagcdn.com/cd.svg',  # Congolese Franc
-    'CHF': 'https://flagcdn.com/ch.svg',  # Swiss Franc
-    'CLP': 'https://flagcdn.com/cl.svg',  # Chilean Peso
-    'CNY': 'https://flagcdn.com/cn.svg',  # Chinese Yuan
-    'COP': 'https://flagcdn.com/co.svg',  # Colombian Peso
-    'CRC': 'https://flagcdn.com/cr.svg',  # Costa Rican Colón
-    'CUP': 'https://flagcdn.com/cu.svg',  # Cuban Peso
-    'CVE': 'https://flagcdn.com/cv.svg',  # Cape Verdean Escudo
-    'CZK': 'https://flagcdn.com/cz.svg',  # Czech Koruna
-    'DJF': 'https://flagcdn.com/dj.svg',  # Djiboutian Franc
-    'DKK': 'https://flagcdn.com/dk.svg',  # Danish Krone
-    'DOP': 'https://flagcdn.com/do.svg',  # Dominican Peso
-    'DZD': 'https://flagcdn.com/dz.svg',  # Algerian Dinar
-    'EEK': 'https://flagcdn.com/ee.svg',  # Estonian Kroon
-    'EGP': 'https://flagcdn.com/eg.svg',  # Egyptian Pound
-    'ERN': 'https://flagcdn.com/er.svg',  # Eritrean Nakfa
-    'ETB': 'https://flagcdn.com/et.svg',  # Ethiopian Birr
-    'EUR': 'https://flagcdn.com/eu.svg',  # Euro
-    'FJD': 'https://flagcdn.com/fj.svg',  # Fijian Dollar
-    'FKP': 'https://flagcdn.com/fk.svg',  # Falkland Islands Pound
-    'GBP': 'https://flagcdn.com/gb.svg',  # British Pound Sterling
-    'GEL': 'https://flagcdn.com/ge.svg',  # Georgian Lari
-    'GHS': 'https://flagcdn.com/gh.svg',  # Ghanaian Cedi
-    'GIP': 'https://flagcdn.com/gi.svg',  # Gibraltar Pound
-    'GMD': 'https://flagcdn.com/gm.svg',  # Gambian Dalasi
-    'GNF': 'https://flagcdn.com/gn.svg',  # Guinean Franc
-    'GTQ': 'https://flagcdn.com/gt.svg',  # Guatemalan Quetzal
-    'GYD': 'https://flagcdn.com/gy.svg',  # Guyanese Dollar
-    'HKD': 'https://flagcdn.com/hk.svg',  # Hong Kong Dollar
-    'HNL': 'https://flagcdn.com/hn.svg',  # Honduran Lempira
-    'HRK': 'https://flagcdn.com/hr.svg',  # Croatian Kuna
-    'HTG': 'https://flagcdn.com/ht.svg',  # Haitian Gourde
-    'HUF': 'https://flagcdn.com/hu.svg',  # Hungarian Forint
-    'IDR': 'https://flagcdn.com/id.svg',  # Indonesian Rupiah
-    'ILS': 'https://flagcdn.com/il.svg',  # Israeli New Shekel
-    'INR': 'https://flagcdn.com/in.svg',  # Indian Rupee
-    'IQD': 'https://flagcdn.com/iq.svg',  # Iraqi Dinar
-    'IRR': 'https://flagcdn.com/ir.svg',  # Iranian Rial
-    'ISK': 'https://flagcdn.com/is.svg',  # Icelandic Króna
-    'JMD': 'https://flagcdn.com/jm.svg',  # Jamaican Dollar
-    'JPY': 'https://flagcdn.com/jp.svg',  # Japanese Yen
-    'KES': 'https://flagcdn.com/ke.svg',  # Kenyan Shilling
-    'KGS': 'https://flagcdn.com/kg.svg',  # Kyrgyzstani Som
-    'KHR': 'https://flagcdn.com/kh.svg',  # Cambodian Riel
-    'KPW': 'https://flagcdn.com/kp.svg',  # North Korean Won
-    'KRW': 'https://flagcdn.com/kr.svg',  # South Korean Won
-    'KWD': 'https://flagcdn.com/kw.svg',  # Kuwaiti Dinar
-    'KYD': 'https://flagcdn.com/ky.svg',  # Cayman Islands Dollar
-    'KZT': 'https://flagcdn.com/kz.svg',  # Kazakhstani Tenge
-    'LAK': 'https://flagcdn.com/la.svg',  # Laotian Kip
-    'LBP': 'https://flagcdn.com/lb.svg',  # Lebanese Pound
-    'LKR': 'https://flagcdn.com/lk.svg',  # Sri Lankan Rupee
-    'LRD': 'https://flagcdn.com/lr.svg',  # Liberian Dollar
-    'LSL': 'https://flagcdn.com/ls.svg',  # Lesotho Loti
-    'LYD': 'https://flagcdn.com/ly.svg',  # Libyan Dinar
-    'MAD': 'https://flagcdn.com/ma.svg',  # Moroccan Dirham
-    'MDL': 'https://flagcdn.com/md.svg',  # Moldovan Leu
-    'MGA': 'https://flagcdn.com/mg.svg',  # Malagasy Ariary
-    'MKD': 'https://flagcdn.com/mk.svg',  # Macedonian Denar
-    'MMK': 'https://flagcdn.com/mm.svg',  # Myanmar Kyat
-    'MNT': 'https://flagcdn.com/mn.svg',  # Mongolian Tögrög
-    'MOP': 'https://flagcdn.com/mo.svg',  # Macanese Pataca
-    'MRU': 'https://flagcdn.com/mr.svg',  # Mauritanian Ouguiya
-    'MUR': 'https://flagcdn.com/mu.svg',  # Mauritian Rupee
-    'MVR': 'https://flagcdn.com/mv.svg',  # Maldivian Rufiyaa
-    'MWK': 'https://flagcdn.com/mw.svg',  # Malawian Kwacha
-    'MXN': 'https://flagcdn.com/mx.svg',  # Mexican Peso
-    'MYR': 'https://flagcdn.com/my.svg',  # Malaysian Ringgit
-    'MZN': 'https://flagcdn.com/mz.svg',  # Mozambican Metical
-    'NAD': 'https://flagcdn.com/na.svg',  # Namibian Dollar
-    'NGN': 'https://flagcdn.com/ng.svg',  # Nigerian Naira
-    'NIO': 'https://flagcdn.com/ni.svg',  # Nicaraguan Córdoba
-    'NOK': 'https://flagcdn.com/no.svg',  # Norwegian Krone
-    'NPR': 'https://flagcdn.com/np.svg',  # Nepalese Rupee
-    'NZD': 'https://flagcdn.com/nz.svg',  # New Zealand Dollar
-    'OMR': 'https://flagcdn.com/om.svg',  # Omani Rial
-    'PAB': 'https://flagcdn.com/pa.svg',  # Panamanian Balboa
-    'PEN': 'https://flagcdn.com/pe.svg',  # Peruvian Sol
-    'PGK': 'https://flagcdn.com/pg.svg',  # Papua New Guinean Kina
-    'PHP': 'https://flagcdn.com/ph.svg',  # Philippine Peso
-    'PKR': 'https://flagcdn.com/pk.svg',  # Pakistani Rupee
-    'PLN': 'https://flagcdn.com/pl.svg',  # Polish Zloty
-    'PYG': 'https://flagcdn.com/py.svg',  # Paraguayan Guarani
-    'QAR': 'https://flagcdn.com/qa.svg',  # Qatari Rial
-    'RON': 'https://flagcdn.com/ro.svg',  # Romanian Leu
-    'RSD': 'https://flagcdn.com/rs.svg',  # Serbian Dinar
-    'RUB': 'https://flagcdn.com/ru.svg',  # Russian Ruble
-    'RWF': 'https://flagcdn.com/rw.svg',  # Rwandan Franc
-    'SAR': 'https://flagcdn.com/sa.svg',  # Saudi Riyal
-    'SBD': 'https://flagcdn.com/sb.svg',  # Solomon Islands Dollar
-    'SCR': 'https://flagcdn.com/sc.svg',  # Seychellois Rupee
-    'SDG': 'https://flagcdn.com/sd.svg',  # Sudanese Pound
-    'SEK': 'https://flagcdn.com/se.svg',  # Swedish Krona
-    'SGD': 'https://flagcdn.com/sg.svg',  # Singapore Dollar
-    'SHP': 'https://flagcdn.com/sh.svg',  # Saint Helena Pound
-    'SLL': 'https://flagcdn.com/sl.svg',  # Sierra Leonean Leone
-    'SOS': 'https://flagcdn.com/so.svg',  # Somali Shilling
-    'SRD': 'https://flagcdn.com/sr.svg',  # Surinamese Dollar
-    'SSP': 'https://flagcdn.com/ss.svg',  # South Sudanese Pound
-    'STD': 'https://flagcdn.com/st.svg',  # São Tomé and Príncipe Dobra
-    'SYP': 'https://flagcdn.com/sy.svg',  # Syrian Pound
-    'SZL': 'https://flagcdn.com/sz.svg',  # Eswatini Lilangeni
-    'THB': 'https://flagcdn.com/th.svg',  # Thai Baht
-    'TJS': 'https://flagcdn.com/tj.svg',  # Tajikistani Somoni
-    'TMT': 'https://flagcdn.com/tm.svg',  # Turkmenistani Manat
-    'TND': 'https://flagcdn.com/tn.svg',  # Tunisian Dinar
-    'TOP': 'https://flagcdn.com/to.svg',  # Tongan Paʻanga
-    'TRY': 'https://flagcdn.com/tr.svg',  # Turkish Lira
-    'TTD': 'https://flagcdn.com/tt.svg',  # Trinidad and Tobago Dollar
-    'TWD': 'https://flagcdn.com/tw.svg',  # New Taiwan Dollar
-    'TZS': 'https://flagcdn.com/tz.svg',  # Tanzanian Shilling
-    'UAH': 'https://flagcdn.com/ua.svg',  # Ukrainian Hryvnia
-    'UGX': 'https://flagcdn.com/ug.svg',  # Ugandan Shilling
-    'USD': 'https://flagcdn.com/us.svg',  # United States Dollar
-    'UYU': 'https://flagcdn.com/uy.svg',  # Uruguayan Peso
-    'UZS': 'https://flagcdn.com/uz.svg',  # Uzbekistani Som
-    'VES': 'https://flagcdn.com/ve.svg',  # Venezuelan Bolívar
-    'VND': 'https://flagcdn.com/vn.svg',  # Vietnamese Dong
-    'VUV': 'https://flagcdn.com/vu.svg',  # Vanuatu Vatu
-    'WST': 'https://flagcdn.com/ws.svg',  # Samoan Tala
-    'XAF': 'https://flagcdn.com/xaf.svg',  # Central African CFA Franc
-    'XCD': 'https://flagcdn.com/xcd.svg',  # East Caribbean Dollar
-    'XOF': 'https://flagcdn.com/xof.svg',  # West African CFA Franc
-    'XPF': 'https://flagcdn.com/xpf.svg',  # CFP Franc
-    'YER': 'https://flagcdn.com/ye.svg',  # Yemeni Rial
-    'ZAR': 'https://flagcdn.com/za.svg',  # South African Rand
-    'ZMW': 'https://flagcdn.com/zm.svg',  # Zambian Kwacha
-    'ZWL': 'https://flagcdn.com/zw.svg',  # Zimbabwean Dollar
-    'BTC': 'https://flagcdn.com/btc.svg'   # Bitcoin
+    'AED': mark_safe("<img src='https://flagcdn.com/ae.svg' alt='UAE flag' width='24' height='18'>"),  # United Arab Emirates Dirham
+    'AFN': mark_safe("<img src='https://flagcdn.com/af.svg' alt='Afghan flag' width='24' height='18'>"),  # Afghan Afghani
+    'ALL': mark_safe("<img src='https://flagcdn.com/al.svg' alt='Albanian flag' width='24' height='18'>"),  # Albanian Lek
+    'AMD': mark_safe("<img src='https://flagcdn.com/am.svg' alt='Armenian flag' width='24' height='18'>"),  # Armenian Dram
+    'ANG': mark_safe("<img src='https://flagcdn.com/an.svg' alt='Netherlands Antillean flag' width='24' height='18'>"),  # Netherlands Antillean Guilder
+    'AOA': mark_safe("<img src='https://flagcdn.com/ao.svg' alt='Angolan flag' width='24' height='18'>"),  # Angolan Kwanza
+    'ARS': mark_safe("<img src='https://flagcdn.com/ar.svg' alt='Argentine flag' width='24' height='18'>"),  # Argentine Peso
+    'AUD': mark_safe("<img src='https://flagcdn.com/au.svg' alt='Australian flag' width='24' height='18'>"),  # Australian Dollar
+    'AWG': mark_safe("<img src='https://flagcdn.com/aw.svg' alt='Aruban flag' width='24' height='18'>"),  # Aruban Florin
+    'AZN': mark_safe("<img src='https://flagcdn.com/az.svg' alt='Azerbaijani flag' width='24' height='18'>"),  # Azerbaijani Manat
+    'BAM': mark_safe("<img src='https://flagcdn.com/ba.svg' alt='Bosnia and Herzegovina flag' width='24' height='18'>"),  # Bosnia and Herzegovina Convertible Mark
+    'BBD': mark_safe("<img src='https://flagcdn.com/bb.svg' alt='Barbadian flag' width='24' height='18'>"),  # Barbadian Dollar
+    'BDT': mark_safe("<img src='https://flagcdn.com/bd.svg' alt='Bangladeshi flag' width='24' height='18'>"),  # Bangladeshi Taka
+    'BGN': mark_safe("<img src='https://flagcdn.com/bg.svg' alt='Bulgarian flag' width='24' height='18'>"),  # Bulgarian Lev
+    'BHD': mark_safe("<img src='https://flagcdn.com/bh.svg' alt='Bahraini flag' width='24' height='18'>"),  # Bahraini Dinar
+    'BIF': mark_safe("<img src='https://flagcdn.com/bi.svg' alt='Burundian flag' width='24' height='18'>"),  # Burundian Franc
+    'BMD': mark_safe("<img src='https://flagcdn.com/bm.svg' alt='Bermudian flag' width='24' height='18'>"),  # Bermudian Dollar
+    'BND': mark_safe("<img src='https://flagcdn.com/bn.svg' alt='Bruneian flag' width='24' height='18'>"),  # Brunei Dollar
+    'BOB': mark_safe("<img src='https://flagcdn.com/bo.svg' alt='Bolivian flag' width='24' height='18'>"),  # Bolivian Boliviano
+    'BRL': mark_safe("<img src='https://flagcdn.com/br.svg' alt='Brazilian flag' width='24' height='18'>"),  # Brazilian Real
+    'BSD': mark_safe("<img src='https://flagcdn.com/bs.svg' alt='Bahamian flag' width='24' height='18'>"),  # Bahamian Dollar
+    'BTN': mark_safe("<img src='https://flagcdn.com/bt.svg' alt='Bhutanese flag' width='24' height='18'>"),  # Bhutanese Ngultrum
+    'BWP': mark_safe("<img src='https://flagcdn.com/bw.svg' alt='Botswanan flag' width='24' height='18'>"),  # Botswana Pula
+    'BYN': mark_safe("<img src='https://flagcdn.com/by.svg' alt='Belarusian flag' width='24' height='18'>"),  # Belarusian Ruble
+    'BZD': mark_safe("<img src='https://flagcdn.com/bz.svg' alt='Belizean flag' width='24' height='18'>"),  # Belize Dollar
+    'CAD': mark_safe("<img src='https://flagcdn.com/ca.svg' alt='Canadian flag' width='24' height='18'>"),  # Canadian Dollar
+    'CDF': mark_safe("<img src='https://flagcdn.com/cd.svg' alt='Congolese flag' width='24' height='18'>"),  # Congolese Franc
+    'CHF': mark_safe("<img src='https://flagcdn.com/ch.svg' alt='Swiss flag' width='24' height='18'>"),  # Swiss Franc
+    'CLP': mark_safe("<img src='https://flagcdn.com/cl.svg' alt='Chilean flag' width='24' height='18'>"),  # Chilean Peso
+    'CNY': mark_safe("<img src='https://flagcdn.com/cn.svg' alt='Chinese flag' width='24' height='18'>"),  # Chinese Yuan
+    'COP': mark_safe("<img src='https://flagcdn.com/co.svg' alt='Colombian flag' width='24' height='18'>"),  # Colombian Peso
+    'CRC': mark_safe("<img src='https://flagcdn.com/cr.svg' alt='Costa Rican flag' width='24' height='18'>"),  # Costa Rican Colón
+    'CUP': mark_safe("<img src='https://flagcdn.com/cu.svg' alt='Cuban flag' width='24' height='18'>"),  # Cuban Peso
+    'CVE': mark_safe("<img src='https://flagcdn.com/cv.svg' alt='Cape Verdean flag' width='24' height='18'>"),  # Cape Verdean Escudo
+    'CZK': mark_safe("<img src='https://flagcdn.com/cz.svg' alt='Czech flag' width='24' height='18'>"),  # Czech Koruna
+    'DJF': mark_safe("<img src='https://flagcdn.com/dj.svg' alt='Djiboutian flag' width='24' height='18'>"),  # Djiboutian Franc
+    'DKK': mark_safe("<img src='https://flagcdn.com/dk.svg' alt='Danish flag' width='24' height='18'>"),  # Danish Krone
+    'DOP': mark_safe("<img src='https://flagcdn.com/do.svg' alt='Dominican flag' width='24' height='18'>"),  # Dominican Peso
+    'DZD': mark_safe("<img src='https://flagcdn.com/dz.svg' alt='Algerian flag' width='24' height='18'>"),  # Algerian Dinar
+    'EEK': mark_safe("<img src='https://flagcdn.com/ee.svg' alt='Estonian flag' width='24' height='18'>"),  # Estonian Kroon
+    'EGP': mark_safe("<img src='https://flagcdn.com/eg.svg' alt='Egyptian flag' width='24' height='18'>"),  # Egyptian Pound
+    'ERN': mark_safe("<img src='https://flagcdn.com/er.svg' alt='Eritrean flag' width='24' height='18'>"),  # Eritrean Nakfa
+    'ETB': mark_safe("<img src='https://flagcdn.com/et.svg' alt='Ethiopian flag' width='24' height='18'>"),  # Ethiopian Birr
+    'EUR': mark_safe("<img src='https://flagcdn.com/eu.svg' alt='European flag' width='24' height='18'>"),  # Euro
+    'FJD': mark_safe("<img src='https://flagcdn.com/fj.svg' alt='Fijian flag' width='24' height='18'>"),  # Fijian Dollar
+    'FKP': mark_safe("<img src='https://flagcdn.com/fk.svg' alt='Falkland Islands flag' width='24' height='18'>"),  # Falkland Islands Pound
+    'GBP': mark_safe("<img src='https://flagcdn.com/gb.svg' alt='British flag' width='24' height='18'>"),  # British Pound Sterling
+    'GEL': mark_safe("<img src='https://flagcdn.com/ge.svg' alt='Georgian flag' width='24' height='18'>"),  # Georgian Lari
+    'GHS': mark_safe("<img src='https://flagcdn.com/gh.svg' alt='Ghanaian flag' width='24' height='18'>"),  # Ghanaian Cedi
+    'GIP': mark_safe("<img src='https://flagcdn.com/gi.svg' alt='Gibraltarian flag' width='24' height='18'>"),  # Gibraltar Pound
+    'GMD': mark_safe("<img src='https://flagcdn.com/gm.svg' alt='Gambian flag' width='24' height='18'>"),  # Gambian Dalasi
+    'GNF': mark_safe("<img src='https://flagcdn.com/gn.svg' alt='Guinean flag' width='24' height='18'>"),  # Guinean Franc
+    'GTQ': mark_safe("<img src='https://flagcdn.com/gt.svg' alt='Guatemalan flag' width='24' height='18'>"),  # Guatemalan Quetzal
+    'GYD': mark_safe("<img src='https://flagcdn.com/gy.svg' alt='Guyanese flag' width='24' height='18'>"),  # Guyanese Dollar
+    'HKD': mark_safe("<img src='https://flagcdn.com/hk.svg' alt='Hong Kong flag' width='24' height='18'>"),  # Hong Kong Dollar
+    'HNL': mark_safe("<img src='https://flagcdn.com/hn.svg' alt='Honduran flag' width='24' height='18'>"),  # Honduran Lempira
+    'HRK': mark_safe("<img src='https://flagcdn.com/hr.svg' alt='Croatian flag' width='24' height='18'>"),  # Croatian Kuna
+    'HTG': mark_safe("<img src='https://flagcdn.com/ht.svg' alt='Haitian flag' width='24' height='18'>"),  # Haitian Gourde
+    'HUF': mark_safe("<img src='https://flagcdn.com/hu.svg' alt='Hungarian flag' width='24' height='18'>"),  # Hungarian Forint
+    'IDR': mark_safe("<img src='https://flagcdn.com/id.svg' alt='Indonesian flag' width='24' height='18'>"),  # Indonesian Rupiah
+    'ILS': mark_safe("<img src='https://flagcdn.com/il.svg' alt='Israeli flag' width='24' height='18'>"),  # Israeli New Shekel
+    'INR': mark_safe("<img src='https://flagcdn.com/in.svg' alt='Indian flag' width='24' height='18'>"),  # Indian Rupee
+    'IQD': mark_safe("<img src='https://flagcdn.com/iq.svg' alt='Iraqi flag' width='24' height='18'>"),  # Iraqi Dinar
+    'IRR': mark_safe("<img src='https://flagcdn.com/ir.svg' alt='Iranian flag' width='24' height='18'>"),  # Iranian Rial
+    'ISK': mark_safe("<img src='https://flagcdn.com/is.svg' alt='Icelandic flag' width='24' height='18'>"),  # Icelandic Króna
+    'JMD': mark_safe("<img src='https://flagcdn.com/jm.svg' alt='Jamaican flag' width='24' height='18'>"),  # Jamaican Dollar
+    'JOD': mark_safe("<img src='https://flagcdn.com/jo.svg' alt='Jordanian flag' width='24' height='18'>"),  # Jordanian Dinar
+    'JPY': mark_safe("<img src='https://flagcdn.com/jp.svg' alt='Japanese flag' width='24' height='18'>"),  # Japanese Yen
+    'KES': mark_safe("<img src='https://flagcdn.com/ke.svg' alt='Kenyan flag' width='24' height='18'>"),  # Kenyan Shilling
+    'KGS': mark_safe("<img src='https://flagcdn.com/kg.svg' alt='Kyrgyz flag' width='24' height='18'>"),  # Kyrgyzstani Som
+    'KHR': mark_safe("<img src='https://flagcdn.com/kh.svg' alt='Cambodian flag' width='24' height='18'>"),  # Cambodian Riel
+    'KMF': mark_safe("<img src='https://flagcdn.com/km.svg' alt='Comorian flag' width='24' height='18'>"),  # Comorian Franc
+    'KPW': mark_safe("<img src='https://flagcdn.com/kp.svg' alt='North Korean flag' width='24' height='18'>"),  # North Korean Won
+    'KRW': mark_safe("<img src='https://flagcdn.com/kr.svg' alt='South Korean flag' width='24' height='18'>"),  # South Korean Won
+    'KWD': mark_safe("<img src='https://flagcdn.com/kw.svg' alt='Kuwaiti flag' width='24' height='18'>"),  # Kuwaiti Dinar
+    'KYD': mark_safe("<img src='https://flagcdn.com/ky.svg' alt='Cayman Islands flag' width='24' height='18'>"),  # Cayman Islands Dollar
+    'KZT': mark_safe("<img src='https://flagcdn.com/kz.svg' alt='Kazakh flag' width='24' height='18'>"),  # Kazakhstani Tenge
+    'LAK': mark_safe("<img src='https://flagcdn.com/la.svg' alt='Laotian flag' width='24' height='18'>"),  # Laotian Kip
+    'LBP': mark_safe("<img src='https://flagcdn.com/lb.svg' alt='Lebanese flag' width='24' height='18'>"),  # Lebanese Pound
+    'LKR': mark_safe("<img src='https://flagcdn.com/lk.svg' alt='Sri Lankan flag' width='24' height='18'>"),  # Sri Lankan Rupee
+    'LRD': mark_safe("<img src='https://flagcdn.com/lr.svg' alt='Liberian flag' width='24' height='18'>"),  # Liberian Dollar
+    'LSL': mark_safe("<img src='https://flagcdn.com/ls.svg' alt='Lesotho flag' width='24' height='18'>"),  # Lesotho Loti
+    'LTL': mark_safe("<img src='https://flagcdn.com/lt.svg' alt='Lithuanian flag' width='24' height='18'>"),  # Lithuanian Litas
+    'LYD': mark_safe("<img src='https://flagcdn.com/ly.svg' alt='Libyan flag' width='24' height='18'>"),  # Libyan Dinar
+    'MAD': mark_safe("<img src='https://flagcdn.com/ma.svg' alt='Moroccan flag' width='24' height='18'>"),  # Moroccan Dirham
+    'MDL': mark_safe("<img src='https://flagcdn.com/md.svg' alt='Moldovan flag' width='24' height='18'>"),  # Moldovan Leu
+    'MGA': mark_safe("<img src='https://flagcdn.com/mg.svg' alt='Malagasy flag' width='24' height='18'>"),  # Malagasy Ariary
+    'MKD': mark_safe("<img src='https://flagcdn.com/mk.svg' alt='Macedonian flag' width='24' height='18'>"),  # Macedonian Denar
+    'MMK': mark_safe("<img src='https://flagcdn.com/mm.svg' alt='Burmese flag' width='24' height='18'>"),  # Myanmar Kyat
+    'MNT': mark_safe("<img src='https://flagcdn.com/mn.svg' alt='Mongolian flag' width='24' height='18'>"),  # Mongolian Tögrög
+    'MOP': mark_safe("<img src='https://flagcdn.com/mo.svg' alt='Macao flag' width='24' height='18'>"),  # Macanese Pataca
+    'MRU': mark_safe("<img src='https://flagcdn.com/mr.svg' alt='Mauritanian flag' width='24' height='18'>"),  # Mauritanian Ouguiya
+    'MUR': mark_safe("<img src='https://flagcdn.com/mu.svg' alt='Mauritian flag' width='24' height='18'>"),  # Mauritian Rupee
+    'MVR': mark_safe("<img src='https://flagcdn.com/mv.svg' alt='Maldivian flag' width='24' height='18'>"),  # Maldivian Rufiyaa
+    'MWK': mark_safe("<img src='https://flagcdn.com/mw.svg' alt='Malawian flag' width='24' height='18'>"),  # Malawian Kwacha
+    'MXN': mark_safe("<img src='https://flagcdn.com/mx.svg' alt='Mexican flag' width='24' height='18'>"),  # Mexican Peso
+    'MYR': mark_safe("<img src='https://flagcdn.com/my.svg' alt='Malaysian flag' width='24' height='18'>"),  # Malaysian Ringgit
+    'MZN': mark_safe("<img src='https://flagcdn.com/mz.svg' alt='Mozambican flag' width='24' height='18'>"),  # Mozambican Metical
+    'NAD': mark_safe("<img src='https://flagcdn.com/na.svg' alt='Namibian flag' width='24' height='18'>"),  # Namibian Dollar
+    'NGN': mark_safe("<img src='https://flagcdn.com/ng.svg' alt='Nigerian flag' width='24' height='18'>"),  # Nigerian Naira
+    'NIO': mark_safe("<img src='https://flagcdn.com/ni.svg' alt='Nicaraguan flag' width='24' height='18'>"),  # Nicaraguan Córdoba
+    'NOK': mark_safe("<img src='https://flagcdn.com/no.svg' alt='Norwegian flag' width='24' height='18'>"),  # Norwegian Krone
+    'NPR': mark_safe("<img src='https://flagcdn.com/np.svg' alt='Nepalese flag' width='24' height='18'>"),  # Nepalese Rupee
+    'NZD': mark_safe("<img src='https://flagcdn.com/nz.svg' alt='New Zealand flag' width='24' height='18'>"),  # New Zealand Dollar
+    'PAB': mark_safe("<img src='https://flagcdn.com/pa.svg' alt='Panamanian flag' width='24' height='18'>"),  # Panamanian Balboa
+    'PEN': mark_safe("<img src='https://flagcdn.com/pe.svg' alt='Peruvian flag' width='24' height='18'>"),  # Peruvian Sol
+    'PGK': mark_safe("<img src='https://flagcdn.com/pg.svg' alt='Papua New Guinean flag' width='24' height='18'>"),  # Papua New Guinean Kina
+    'PHP': mark_safe("<img src='https://flagcdn.com/ph.svg' alt='Philippine flag' width='24' height='18'>"),  # Philippine Peso
+    'PKR': mark_safe("<img src='https://flagcdn.com/pk.svg' alt='Pakistani flag' width='24' height='18'>"),  # Pakistani Rupee
+    'PLN': mark_safe("<img src='https://flagcdn.com/pl.svg' alt='Polish flag' width='24' height='18'>"),  # Polish Zloty
+    'PYG': mark_safe("<img src='https://flagcdn.com/py.svg' alt='Paraguayan flag' width='24' height='18'>"),  # Paraguayan Guarani
+    'QAR': mark_safe("<img src='https://flagcdn.com/qa.svg' alt='Qatari flag' width='24' height='18'>"),  # Qatari Rial
+    'RON': mark_safe("<img src='https://flagcdn.com/ro.svg' alt='Romanian flag' width='24' height='18'>"),  # Romanian Leu
+    'RSD': mark_safe("<img src='https://flagcdn.com/rs.svg' alt='Serbian flag' width='24' height='18'>"),  # Serbian Dinar
+    'RUB': mark_safe("<img src='https://flagcdn.com/ru.svg' alt='Russian flag' width='24' height='18'>"),  # Russian Ruble
+    'RWF': mark_safe("<img src='https://flagcdn.com/rw.svg' alt='Rwandan flag' width='24' height='18'>"),  # Rwandan Franc
+    'SAR': mark_safe("<img src='https://flagcdn.com/sa.svg' alt='Saudi Arabian flag' width='24' height='18'>"),  # Saudi Riyal
+    'SBD': mark_safe("<img src='https://flagcdn.com/sb.svg' alt='Solomon Islands flag' width='24' height='18'>"),  # Solomon Islands Dollar
+    'SCR': mark_safe("<img src='https://flagcdn.com/sc.svg' alt='Seychellois flag' width='24' height='18'>"),  # Seychellois Rupee
+    'SDG': mark_safe("<img src='https://flagcdn.com/sd.svg' alt='Sudanese flag' width='24' height='18'>"),  # Sudanese Pound
+    'SEK': mark_safe("<img src='https://flagcdn.com/se.svg' alt='Swedish flag' width='24' height='18'>"),  # Swedish Krona
+    'SGD': mark_safe("<img src='https://flagcdn.com/sg.svg' alt='Singaporean flag' width='24' height='18'>"),  # Singapore Dollar
+    'SHP': mark_safe("<img src='https://flagcdn.com/sh.svg' alt='Saint Helena flag' width='24' height='18'>"),  # Saint Helena Pound
+    'SLL': mark_safe("<img src='https://flagcdn.com/sl.svg' alt='Sierra Leonean flag' width='24' height='18'>"),  # Sierra Leonean Leone
+    'SOS': mark_safe("<img src='https://flagcdn.com/so.svg' alt='Somali flag' width='24' height='18'>"),  # Somali Shilling
+    'SRD': mark_safe("<img src='https://flagcdn.com/sr.svg' alt='Surinamese flag' width='24' height='18'>"),  # Surinamese Dollar
+    'SZL': mark_safe("<img src='https://flagcdn.com/sz.svg' alt='Swazi flag' width='24' height='18'>"),  # Swazi Lilangeni
+    'THB': mark_safe("<img src='https://flagcdn.com/th.svg' alt='Thai flag' width='24' height='18'>"),  # Thai Baht
+    'TJS': mark_safe("<img src='https://flagcdn.com/tj.svg' alt='Tajik flag' width='24' height='18'>"),  # Tajikistani Somoni
+    'TMT': mark_safe("<img src='https://flagcdn.com/tm.svg' alt='Turkmen flag' width='24' height='18'>"),  # Turkmenistani Manat
+    'TND': mark_safe("<img src='https://flagcdn.com/tn.svg' alt='Tunisian flag' width='24' height='18'>"),  # Tunisian Dinar
+    'TOP': mark_safe("<img src='https://flagcdn.com/to.svg' alt='Tongan flag' width='24' height='18'>"),  # Tongan Paʻanga
+    'TRY': mark_safe("<img src='https://flagcdn.com/tr.svg' alt='Turkish flag' width='24' height='18'>"),  # Turkish Lira
+    'TTD': mark_safe("<img src='https://flagcdn.com/tt.svg' alt='Trinidad and Tobago flag' width='24' height='18'>"),  # Trinidad and Tobago Dollar
+    'TWD': mark_safe("<img src='https://flagcdn.com/tw.svg' alt='Taiwan flag' width='24' height='18'>"),  # New Taiwan Dollar
+    'TZS': mark_safe("<img src='https://flagcdn.com/tz.svg' alt='Tanzanian flag' width='24' height='18'>"),  # Tanzanian Shilling
+    'UAH': mark_safe("<img src='https://flagcdn.com/ua.svg' alt='Ukrainian flag' width='24' height='18'>"),  # Ukrainian Hryvnia
+    'UGX': mark_safe("<img src='https://flagcdn.com/ug.svg' alt='Ugandan flag' width='24' height='18'>"),  # Ugandan Shilling
+    'USD': mark_safe("<img src='https://flagcdn.com/us.svg' alt='United States flag' width='24' height='18'>"),  # United States Dollar
+    'UYU': mark_safe("<img src='https://flagcdn.com/uy.svg' alt='Uruguayan flag' width='24' height='18'>"),  # Uruguayan Peso
+    'UZS': mark_safe("<img src='https://flagcdn.com/uz.svg' alt='Uzbekistani flag' width='24' height='18'>"),  # Uzbekistani Som
+    'VES': mark_safe("<img src='https://flagcdn.com/ve.svg' alt='Venezuelan flag' width='24' height='18'>"),  # Venezuelan Bolívar
+    'VND': mark_safe("<img src='https://flagcdn.com/vn.svg' alt='Vietnamese flag' width='24' height='18'>"),  # Vietnamese Dong
+    'VUV': mark_safe("<img src='https://flagcdn.com/vu.svg' alt='Vanuatuan flag' width='24' height='18'>"),  # Vanuatu Vatu
+    'WST': mark_safe("<img src='https://flagcdn.com/ws.svg' alt='Samoan flag' width='24' height='18'>"),  # Samoan Tala
+    'XAF': mark_safe("<img src='https://flagcdn.com/xaf.svg' alt='Central African CFA franc' width='24' height='18'>"),  # Central African CFA Franc
+    'XCD': mark_safe("<img src='https://flagcdn.com/xcd.svg' alt='East Caribbean Dollar' width='24' height='18'>"),  # East Caribbean Dollar
+    'XOF': mark_safe("<img src='https://flagcdn.com/xof.svg' alt='West African CFA franc' width='24' height='18'>"),  # West African CFA Franc
+    'XPF': mark_safe("<img src='https://flagcdn.com/xpf.svg' alt='CFP Franc' width='24' height='18'>"),  # CFP Franc
+    'ZAR': mark_safe("<img src='https://flagcdn.com/za.svg' alt='South African flag' width='24' height='18'>"),  # South African Rand
+    'ZMW': mark_safe("<img src='https://flagcdn.com/zm.svg' alt='Zambian flag' width='24' height='18'>"),  # Zambian Kwacha
+    'ZWL': mark_safe("<img src='https://flagcdn.com/zw.svg' alt='Zimbabwean flag' width='24' height='18'>"),  # Zimbabwean Dollar
+    'BTC': mark_safe("<img src='https://flagcdn.com/btc.svg' alt='bitcoin logo' width='24' height='18'>")   # Bitcoin
 }
 
 
