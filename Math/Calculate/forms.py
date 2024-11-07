@@ -15,14 +15,27 @@ class CurrencyConverterForm(forms.Form):
     currency_choices = get_currency_choices()
 
     from_currency = forms.ChoiceField(
-            label='From Currency',
-            choices=[(code, mark_safe(f"{flag_url} {name} ({country_code})")) for code, name, country_code, flag_url in currency_choices], 
-            required=True
+        label='From Currency',
+        choices=[
+            (
+                code, 
+                mark_safe(f'<img src="https://flagcdn.com/{country_code.lower() if country_code else "default"}.svg" alt="{country_code or "default"}" /> {name} ({country_code or "N/A"})')
+            ) 
+            for code, name, country_code in currency_choices
+        ], 
+        required=True
     )
+
     to_currency = forms.ChoiceField(
-            label='To Currency', 
-            choices=[(code, mark_safe(f"{flag_url} {name} ({country_code})")) for code, name, country_code, flag_url in currency_choices], 
-            required=True
+        label='To Currency', 
+        choices=[
+            (
+                code, 
+                mark_safe(f'<img src="https://flagcdn.com/{country_code.lower() if country_code else "default"}.svg" alt="{country_code or "default"}" /> {name} ({country_code or "N/A"})')
+            ) 
+            for code, name, country_code in currency_choices
+        ],
+        required=True
     )
 
 #This Form is for the BMI Feature

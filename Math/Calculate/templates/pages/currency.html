@@ -29,7 +29,7 @@
             <button class="toggle-sidebar">Toggle Sidebar</button>
 
             <!-- Sidebar -->
-            <div class='sidebar bg-green-800 h-screen p-4 md:flex flex-col items-center text-gray-100'>
+            <div class='sidebar bg-green-800 h-[110%] p-4 md:flex flex-col items-center text-gray-100'>
                 <div class='mt-16 md:8 mb-16 flex'>
                     <img width="30" height="30" src="https://img.icons8.com/external-smashingstocks-thin-outline-smashing-stocks/67/external-Calculator-engineering-smashingstocks-thin-outline-smashing-stocks.png" alt="calculator" />
                     <p class='pl-4'>Calculator</p>
@@ -77,8 +77,8 @@
                                 <button type="submit" class="bg-green-600 mr-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Convert</button>
                                 <button type="button" id="swap-button" class="bg-green-600 ml-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Swap</button>
                             </div>
-                            <div class="mx-auto w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-xl focus:ring-2 focus:ring-offset-1 focus:ring-white">
-                                <h2 class='text-center'> {{result|floatformat:2|intcomma}} </h2>
+                            <div class="mx-auto w-[20%] rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-xl focus:ring-2 focus:ring-offset-1 focus:ring-white">
+                                <h2 class='text-center text-green-900 text-xl font-bold'> {{result|floatformat:2|intcomma}} </h2>
                             </div>
                         </form>
                     </div>
@@ -153,7 +153,3 @@
         </script>
     </body>    
 </html>
-
-{% if result %}
-    <div class="w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white">{{result|floatformat:2}}</div>
-{% endif %}
