@@ -1,0 +1,155 @@
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+        <meta name = 'viewport' content = 'width=device-width, initial-scale = 1'/>
+        <meta http-equiv='content-type' content='text/html; charset = utf-8'/>
+        <meta name = 'robots' content = 'index, follow'>
+
+        <link rel = 'stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+        <link rel = 'stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css'>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        
+        <!-- TailwindCSS Compilation -->
+        <link rel="stylesheet" href="{% static 'src/npx tailwindcss -i ./static/src/input.css -o ./static/src/output.cssoutput.css' %}">
+        <link rel="stylesheet" href="{% static 'src/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        
+        <title> {{ title }}</title>
+    </head>
+
+
+    <body class='bg-gray-300 max-h-screen'>
+        <div class='flex'>
+            <!-- Toggle Sidebar Button for mobile -->
+            <button class="toggle-sidebar">Toggle Sidebar</button>
+
+            <!-- Sidebar -->
+            <div class='sidebar bg-green-800 h-[110%] p-4 md:flex flex-col items-center text-gray-100'>
+                <a href="{% url 'calculator'%}"><div class='mt-16 md:8 mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/external-smashingstocks-thin-outline-smashing-stocks/67/external-Calculator-engineering-smashingstocks-thin-outline-smashing-stocks.png" alt="calculator" />
+                    <p class='pl-4'>Calculator</p>
+                </div></a>
+                <a href="{% url 'currency_converter'%}"><div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/ios-filled/50/euro-exchange.png" alt="euro-exchange" />
+                    <p class='pl-4'> CurrencyX </p>
+                </div></a>
+                <a href="{%url 'calculate_bmi'%}"><div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/color/48/bmi.png" alt="bmi" />
+                    <p class='pl-4'> BMI Calc </p>
+                </div></a>
+                <div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/cotton/64/conversion-currencies.png" alt="conversion-currencies" />
+                    <p class='pl-4'> QuickConvert </p>
+                </div>
+                <a href='http://pythogenius.pythonanywhere.com/weather'><div class='mb-16 flex'>
+                    <img width="30" height="30" src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/external-Weather-android-app-flatart-icons-outline-flatarticons.png" alt="external-Weather-android-app-flatart-icons-outline-flatarticons"/>
+                    <p class='pl-4'> WeatherNow </p>
+                </div></a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-grow min-h-screen flex items-center justify-center mt-8 md:mt-2 px-4">
+                <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 w-md max-w-md rounded-3xl shadow-xl text-gray-200">
+                    <div class="rounded-t-3xl p-8 transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-3xl shadow-2xl">
+                        <form method="post" action="{% url 'currency_converter' %}" class="space-y-6 bg-white shadow-xl rounded-lg p-4">
+                            {% csrf_token %}
+                            <div class='-mt-6'>
+                                <h2 class='text-center text-xs text-green-800 -mt-8'>AfreXMatics</h2>
+                            </div>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="flex flex-row justify-evenly gap-8">
+                                    {{ form.from_currency|add_class:"w-32 rounded-md py-2 px-3 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white" }}
+                                    <div>{{ form.amount|add_class:"w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white"}}</div>
+                                </div>
+                                <div class="flex flex-row justify-evenly gap-8 mt-12">
+                                    <div>{{ form.to_currency|add_class:"w-32 rounded-md py-2 px-3 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white" }}</div>
+                                    <div>
+                                        <input id=amount2 class='w-24 rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-gray-100 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-white'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center mt-6">
+                                <button type="submit" class="bg-green-600 mr-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Convert</button>
+                                <button type="button" id="swap-button" class="bg-green-600 ml-2 text-white text-base font-bold py-2 px-4 rounded-md shadow-lg hover:bg-green-400 transition-all duration-300 transform hover:scale-105">Swap</button>
+                            </div>
+                            <div class="mx-auto w-[20%] rounded-md py-2 px-1 outline-none transition-all duration-300 text-gray-800 bg-white shadow-xl focus:ring-2 focus:ring-offset-1 focus:ring-white">
+                                <h2 class='text-center text-green-900 text-xl font-bold'> {{result|floatformat:2|intcomma}} </h2>
+                            </div>
+                        </form>
+                    </div>
+                    
+            
+                    <div class="bg-white rounded-b-3xl p-3 shadow-md mt-3 transition-transform duration-300 transform hover:-translate-y-0 hover:shadow-2xl">
+                        <div class="grid grid-cols-3 gap-3 text-center text-base font-bold text-green-800 hover:-translate-y-1">
+                            <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">7</button>
+                            <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">8</button>
+                            <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">9</button>
+                            <button type="button" onclick="appendNumber(4)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">4</button>
+                            <button type="button" onclick="appendNumber(5)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">5</button>
+                            <button type="button" onclick="appendNumber(6)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">6</button>
+                            <button type="button" onclick="appendNumber(1)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">1</button>
+                            <button type="button" onclick="appendNumber(2)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">2</button>
+                            <button type="button" onclick="appendNumber(3)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">3</button>
+                            <button type="button" onclick="appendNumber(0)" class="bg-green-50 hover:bg-green-100 rounded-md py-2">0</button>
+                            <button type="button" onclick="appendNumber('.')" class="bg-green-50 hover:bg-green-100 rounded-md py-2">.</button>
+                            <button type="button" onclick="backspaceDelete()" class="bg-red-200 hover:bg-red-300 rounded-md py-2">
+                                <i class="bi bi-x-square text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    
+        <footer class='mx-auto'>
+            <h2 class='flex justify-center item-center text-sm text-green-900 mb-2 lg:ml-32'> &copy;AfreX.org {% now 'Y'%}</h2>
+        </footer>
+
+        <!--This is for the sidebar-->
+        <script>
+            // Toggle Sidebar
+            const toggleSidebar = document.querySelector('.toggle-sidebar');
+            const sidebar = document.querySelector('.sidebar');
+
+            toggleSidebar.addEventListener('click', () => {
+             sidebar.classList.toggle('active');
+            });
+        </script>
+
+        <!--This is for the number pad feature-->
+        <script>
+            // Function to append clicked numbers to the amount input
+            function appendNumber(num) {
+                const amountField = document.getElementById('amount');
+                amountField.value += num;
+            }
+
+            function backspaceDelete() {
+                const amountField = document.getElementById('amount');
+                amountField.value = amountField.value.slice(0, -1); // Remove the last character
+            }
+        </script>
+
+        <!--This is for the swapping features-->
+        <script>
+            document.getElementById('swap-button').addEventListener('click', function() {
+                // Get the currency select elements
+                var fromCurrency = document.querySelector('select[name="from_currency"]');
+                var toCurrency = document.querySelector('select[name="to_currency"]');
+
+                // Swap the selected values
+                var temp = fromCurrency.value;
+                fromCurrency.value = toCurrency.value;
+                toCurrency.value = temp;
+            });
+        </script>
+    </body>    
+</html>
