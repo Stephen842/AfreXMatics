@@ -156,18 +156,28 @@ def calculate(request):
 
                 # Below is to run Calculus calculations such as differentiation and integration
                 elif operation == 'diff':
-                    x = sympy.symbols('x')
-                    expression = x ** 2
-                    derivative = sympy.diff(expression, x)
-                    result = derivative
-                    explanation = f'd/dx of {expression} = {derivative}'
+                    try:
+                        x = sympy.symbols('x')
+                        # Convert num_list[0] to a string expression
+                        expression_str = str(num_list[0])
+                        expression = sympy.sympify(expression_str)  # Convert to symbolic expression
+                        derivative = sympy.diff(expression, x)
+                        result = derivative
+                        explanation = f'd/dx of {expression} = {derivative}'
+                    except (sympy.SympifyError, IndexError, TypeError):
+                        error = "Please enter a valid mathematical expression for differentiation (e.g., 'x**2 + 3*x + 5')."
 
                 elif operation == 'int':
-                    x = sympy.symbols('x')
-                    expression = x ** 2
-                    integral = sympy.integrate(expression, x)
-                    result = integral
-                    explanation = f'∫({expression}) dx = {integral}'
+                    try:
+                        x = sympy.symbols('x')
+                        # Convert num_list[0] to a string expression
+                        expression_str = str(num_list[0])
+                        expression = sympy.sympify(expression_str)  # Convert to symbolic expression
+                        integral = sympy.integrate(expression, x)
+                        result = integral
+                        explanation = f'∫({expression}) dx = {integral}'
+                    except (sympy.SympifyError, IndexError, TypeError):
+                        error = "Please enter a valid mathematical expression for integration (e.g., 'x**2 + 3*x + 5')."
 
                 # Below is to run calculation on factorial
                 elif operation == 'factorial':
@@ -188,13 +198,20 @@ def calculate(request):
                 # Below is to run calculations on permutation and commbination
                 elif operation == 'perm_comb':
                     if len(num_list) == 2:
-                        n, r = int(num_list[0]), int(num_list[1])
-                        permutation = math.perm(n, r)
-                        combination = math.comb(n, r)
-                        result = {'Permutation': permutation, 'Combination': combination}
-                        explanation = f'P({n}, {r}) = {permutation}, C({n}, {r}) = {combination}'
+                        try:
+                            n = int(num_list[0]) 
+                            r = int(num_list[1])
+                            if n < 0 or r < 0:
+                                error = 'Permutation and Combination values must be non-negative integers.'
+                            else:
+                                permutation = math.perm(n, r)
+                                combination = math.comb(n, r)
+                                result = {'Permutation': permutation, 'Combination': combination}
+                                explanation = f'P({n}, {r}) = {permutation}, C({n}, {r}) = {combination}'
+                        except ValueError:
+                            error = 'Both inputs must be valid integers.'
                     else:
-                        error = 'Permutaion and Combination require exactly two integers.'
+                        error = 'Permutation and Combination require exactly two integers.'
                 
                 # Below is to run calculations on absolute value
                 elif operation == 'abs':
@@ -206,12 +223,18 @@ def calculate(request):
 
                 # Below is to run calculations on inverse trigonometric functions
                 elif operation == 'arcsin':
-                    result = math.degrees(math.asin(num_list[0]))
-                    explanation = f'arcsin({num_list[0]}) = {result}'
+                    try:
+                        result = math.degrees(math.asin(num_list[0]))
+                        explanation = f'arcsin({num_list[0]}) = {result}'
+                    except ValueError:
+                        error = f"Invalid input for arcsin: {num_list[0]}. Must be between -1 and 1."
 
                 elif operation == 'arccos':
-                    result = math.degrees(math.acos(num_list[0]))
-                    explanation = f'arccos({num_list[0]}) = {result}'
+                    try:
+                        result = math.degrees(math.acos(num_list[0]))
+                        explanation = f'arccos({num_list[0]}) = {result}'
+                    except ValueError:
+                        error = f"Invalid input for arccos: {num_list[0]}. Must be between -1 and 1."
 
                 elif operation == 'arctan':
                     result = math.degrees(math.atan(num_list[0]))
@@ -222,13 +245,13 @@ def calculate(request):
                     sinh = math.sinh(num_list[0])
                     cosh = math.cosh(num_list[0])
                     tanh = math.tanh(num_list[0])
-                    result = {'sinh': sinh, 'cosh': cosh, 'tanh': tanh,}
-                    explanation = f'sinh({num_list[0]}) = {sinh}, cosh({num_list[0]}) = {cosh}, tanh({num_list[0]}) = {tanh}'
+                    result = {'sinh': round(sinh, 2), 'cosh': round(cosh, 2), 'tanh': round(tanh, 2)}
+                    explanation = f'sinh({num_list[0]:.2f}) = {sinh:.2f}, cosh({num_list[0]:.2f}) = {cosh:.2f}, tanh({num_list[0]:.2f}) = {tanh:.2f}'
 
                 # Below is run calculations on complex numbers
                 elif operation == 'complex':
                     if len(num_list) == 2:
-                        complex_num = complex(num_list[0, num_list[1]])
+                        complex_num = complex_num = complex(num_list[0], num_list[1])
                         magnitude  = abs(complex_num)
                         phase = math.degrees(cmath.phase(complex_num))
                         result = {'Complex Number': complex_num, 'Magnitude': magnitude, 'Phase (degrees)': phase}
@@ -240,6 +263,31 @@ def calculate(request):
                 elif operation == 'round':
                     result = round(num_list[0])
                     explanation = f'Round ({num_list[0]}) = {result}'
+
+                # Below is to run calculations on simple and compound interest
+                elif operation == 'SI':
+                    if len(num_list) == 3:
+                        p = float(num_list[0])
+                        r = float(num_list[1]) 
+                        t = float(num_list[2])
+                        simple_interest =  (p * r * t) / 100
+                        total_amount = p + simple_interest
+                        result = {'Simple Interest': simple_interest, 'Total Amount': total_amount}
+                        explanation = f'SI = ({p} * {r} * {t}) / 100 = {simple_interest}, Total Amount = {p} + {simple_interest} = {total_amount}'
+                    else:
+                        error = 'Simple Interest requires exactly three inputs: Principal, Rate, and Time.'
+
+                elif operation == 'CI':
+                    if len(num_list) == 3:
+                        p = float(num_list[0])
+                        r = float(num_list[1]) 
+                        t = float(num_list[2])
+                        amount = p * (1 + r / 100) ** t
+                        compound_interest = amount - p
+                        result = {'Compound Interest': compound_interest, 'Total Amount': amount}
+                        explanation = f'A = {p} * (1 + {r}/100)^{t} = {amount}, CI = {amount} - {p} = {compound_interest}, Total Amount = {amount}'
+                    else:
+                        error = 'Compound Interest requires exactly three inputs: Principal, Rate, and Time.'
 
                 # Below is to run calculation on ordinary differential equation
                 elif operation == 'ode':

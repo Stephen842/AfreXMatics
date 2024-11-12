@@ -43,6 +43,8 @@ class CalculatorForm(forms.Form):
                 ('complex', 'Complex Numbers'),
                 ('round', 'Rounding Functions'),
                 ('log_base', 'Logarithm with Other Base'),
+                ('SI', 'Simple Interest'),
+                ('CI', 'Compound Interest'),
             ],
             label = 'Select Operation'
     )
