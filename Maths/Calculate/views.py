@@ -90,14 +90,19 @@ def calculate(request):
 
                 # Below is to run logarithmic calculations both for common and natural logarithms
                 elif operation == 'log':
-                    result = math.log(num_list[0])
-                    explanation = f'ln({num_list[0]}) = {result}'
+                    try:
+                        formatted_result = math.log(num_list[0])
+                        result = f'{formatted_result:.4f}'
+                        explanation = f'log({num_list[0]}) = {result}'
+                    except ValueError:
+                        error = 'Logarithm input must be greater than 0.'
                 
                 elif operation == 'log_base':
                     try:
                         base_num = num_list[0]
                         value = num_list[1]
-                        result = math.log(value, base_num)
+                        formatted_result = math.log(value, base_num)
+                        result = f'{formatted_result:.4f}'
                         explanation = f'log_{base_num} ({value}) = {result}'
                     except IndexError:
                         error = "Please provide two numbers separated by a comma (base number, value)."
@@ -107,17 +112,20 @@ def calculate(request):
                 # Below is to run trigonometric calculation which include Sine, Cosine and Tangent
                 elif operation == 'sin':
                     angle = math.radians(num_list[0])
-                    result = math.sin(angle)
+                    formatted_result = math.sin(angle)
+                    result = f'{formatted_result:.4f}'
                     explanation = f'sin({num_list[0]}) = {result}'
 
                 elif operation == 'cos':
                     angle = math.radians(num_list[0])
-                    result = math.cos(angle)
+                    formatted_result = math.cos(angle)
+                    result = f'{formatted_result:.4f}'
                     explanation = f'cos({num_list[0]}) = {result}'
 
                 elif operation == 'tan':
                     angle = math.radians(num_list[0])
-                    result = math.tan(angle)
+                    formatted_result = math.tan(angle)
+                    result = f'{formatted_result:.4f}'
                     explanation = f'tan({num_list[0]}) = {result}'
 
                 # Below is to run Pythagorean Theorem by running calculations on the Hypotenuse, adjacent and opposite angle of a right angle triangle
@@ -125,7 +133,8 @@ def calculate(request):
                     try:
                         base = num_list[0]
                         height = num_list[1]
-                        result = math.sqrt(base ** 2 + height ** 2)
+                        formatted_result = math.sqrt(base ** 2 + height ** 2)
+                        result = f'{formatted_result:.4f}'
                         explanation = f'√({base}^2 + {height}^2) = {result}'
                     except IndexError:
                         error = "Please enter two numbers separated by a comma for Pythagoras' theorem (base, height)."
@@ -136,24 +145,40 @@ def calculate(request):
                     try:
                         hypotenuse = num_list[0]
                         height = num_list[1]
-                        result = math.sqrt(hypotenuse ** 2 - height ** 2)
-                        explanation = f'√({hypotenuse}^2 - {height}^2) = {result}'
+
+                        if hypotenuse <= height:
+                            error = "Hypotenuse must be greater than the height for the calculation to be valid."
+
+                        else:
+                            formatted_result = math.sqrt(hypotenuse ** 2 - height ** 2)
+                            result = f'{formatted_result:.4f}'
+                            explanation = f'√({hypotenuse}^2 - {height}^2) = {result}'
                     except IndexError:
                         error = "Please enter two numbers separated by a comma for finding the adjacent side (hypotenuse, height)."
                     except ValueError:
                         error = 'Invalid input. Please ensure you enter valid numbers.'
+                    except ValueError as e:
+                        error = 'Calculation error: ' + str(e)
 
                 elif operation == 'opposite':
                     try:
                         hypotenuse = num_list[0]
                         base = num_list[1]
-                        result = math.sqrt(hypotenuse ** 2 - base ** 2)
-                        explanation = f'√({hypotenuse}^2 - {base}^2) = {result}'
+
+                        if hypotenuse <= base:
+                            error = "Hypotenuse must be greater than the base for the calculation to be valid."
+
+                        else:
+                            formatted_result = math.sqrt(hypotenuse ** 2 - base ** 2)
+                            result = f'{formatted_result:.4f}'
+                            explanation = f'√({hypotenuse}^2 - {base}^2) = {result}'
                     except IndexError:
                         error = "Please enter two numbers separated by a comma for finding the opposite side (hypotenuse, base)."
                     except ValueError:
                         error = 'Invalid input. Please ensure you enter valid numbers.'
-
+                    except ValueError as e:
+                        error = 'Calculation error: ' + str(e)
+                        
                 # Below is to run Calculus calculations such as differentiation and integration
                 elif operation == 'diff':
                     try:
@@ -237,7 +262,8 @@ def calculate(request):
                         error = f"Invalid input for arccos: {num_list[0]}. Must be between -1 and 1."
 
                 elif operation == 'arctan':
-                    result = math.degrees(math.atan(num_list[0]))
+                    formatted_result = math.degrees(math.atan(num_list[0]))
+                    result = f'{formatted_result:.4f}'
                     explanation = f'arctan({num_list[0]}) = {result}'
 
                 # Below is to run calculation on Hyperbolic functions
@@ -254,8 +280,17 @@ def calculate(request):
                         complex_num = complex_num = complex(num_list[0], num_list[1])
                         magnitude  = abs(complex_num)
                         phase = math.degrees(cmath.phase(complex_num))
-                        result = {'Complex Number': complex_num, 'Magnitude': magnitude, 'Phase (degrees)': phase}
-                        explanation = f'Complex: {complex_num}, Magnitude: |{complex_num}| = {magnitude}, Phase = {phase}°'
+                        
+                        result = {
+                            'Complex Number': complex_num, 
+                            'Magnitude':f'{magnitude:.4f}', 
+                            'Phase (degrees)': f'{phase:.4f}',
+                        }
+                        explanation = (
+                            f'Complex: {complex_num:.4f}', 
+                            f'Magnitude: |{complex_num}| = {magnitude:.4f}', 
+                            f'Phase = {phase:.4f}°',
+                        )
                     else:
                         error = 'Complex operation requires a real and an imaginary part.'
 
@@ -272,8 +307,16 @@ def calculate(request):
                         t = float(num_list[2])
                         simple_interest =  (p * r * t) / 100
                         total_amount = p + simple_interest
-                        result = {'Simple Interest': simple_interest, 'Total Amount': total_amount}
-                        explanation = f'SI = ({p} * {r} * {t}) / 100 = {simple_interest}, Total Amount = {p} + {simple_interest} = {total_amount}'
+
+                        formatted_result = {
+                            'Simple Interest': f'{simple_interest:.2f}',
+                            'Total Amount': f'{total_amount:.2f}',
+                        }
+                        result = f"Simple Interest: {formatted_result['Simple Interest']}, Total Amount: {formatted_result['Total Amount']}"
+                        explanation = (
+                            f'SI = ({p} * {r} * {t}) / 100 = {simple_interest:.2f}, ' 
+                            f'Total Amount = {p} + {simple_interest} = {total_amount:.2f}'
+                        )
                     else:
                         error = 'Simple Interest requires exactly three inputs: Principal, Rate, and Time.'
 
@@ -284,8 +327,17 @@ def calculate(request):
                         t = float(num_list[2])
                         amount = p * (1 + r / 100) ** t
                         compound_interest = amount - p
-                        result = {'Compound Interest': compound_interest, 'Total Amount': amount}
-                        explanation = f'A = {p} * (1 + {r}/100)^{t} = {amount}, CI = {amount} - {p} = {compound_interest}, Total Amount = {amount}'
+
+                        formatted_result = {
+                            'Compound Interest': f'{compound_interest:.2f}',
+                            'Total Amount': f'{amount:.2f}',
+                        }
+                        result = f"Compound Interest: {formatted_result['Compound Interest']}, Total Amount: {formatted_result['Total Amount']}"
+                        explanation = (
+                            f'A = {p} * (1 + {r}/100)^{t} = {amount:.2f}, '
+                            f'CI = {amount:.2f} - {p} = {compound_interest:.2f}, '
+                            f'Total Amount = {amount:.2f}'
+                        )
                     else:
                         error = 'Compound Interest requires exactly three inputs: Principal, Rate, and Time.'
 

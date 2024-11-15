@@ -65,7 +65,7 @@
 
     {% if result %}
         <h2>Result:</h2>
-        <p>{{ result }}</p>
+        <p>{{ result|intcomma }}</p>
         <h3>Step-by-Step Explanation:</h3>
         <ul>
             {% for step in explanation %}
