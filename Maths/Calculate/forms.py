@@ -8,6 +8,7 @@ class CalculatorForm(forms.Form):
     numbers = forms.CharField(
             label = 'Enter numbers (comma-seperated)',
             required = False,
+            help_text='Example: 1, 2, 3 for multiple numbers or 5 for a single input.'
     )
 
     # Choice of operation to select from so as to perform calculation
@@ -39,7 +40,9 @@ class CalculatorForm(forms.Form):
                 ('arcsin', 'Arcsin'),
                 ('arccos', 'Arccos'),
                 ('arctan', 'Arctan'),
-                ('hyperbolic', 'Hyperbolic Functions'),
+                ('sinh', 'Hyperbolic Sine'),
+                ('cosh', 'Hyperbolic Cosine'),
+                ('tanh', 'Hyperbolic Tangent'),
                 ('complex', 'Complex Numbers'),
                 ('round', 'Rounding Functions'),
                 ('log_base', 'Logarithm with Other Base'),

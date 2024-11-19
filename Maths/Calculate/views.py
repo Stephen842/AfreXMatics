@@ -267,12 +267,29 @@ def calculate(request):
                     explanation = f'arctan({num_list[0]}) = {result}'
 
                 # Below is to run calculation on Hyperbolic functions
-                elif operation == 'hyperbolic':
-                    sinh = math.sinh(num_list[0])
-                    cosh = math.cosh(num_list[0])
-                    tanh = math.tanh(num_list[0])
-                    result = {'sinh': round(sinh, 2), 'cosh': round(cosh, 2), 'tanh': round(tanh, 2)}
-                    explanation = f'sinh({num_list[0]:.2f}) = {sinh:.2f}, cosh({num_list[0]:.2f}) = {cosh:.2f}, tanh({num_list[0]:.2f}) = {tanh:.2f}'
+                elif operation == 'sinh':
+                    if len(num_list) == 1:
+                        sinh = math.sinh(num_list[0])
+                        result = round(sinh, 2)
+                        explanation = f'sinh({num_list[0]:.2f}) = {sinh:.2f}'
+                    else:
+                        error = 'Hyperbolic Sine requires a single number.'
+
+                elif operation == 'cosh':
+                    if len(num_list) == 1:
+                        cosh = math.cosh(num_list[0])
+                        result = round(cosh, 2)
+                        explanation = f'cosh({num_list[0]:.2f}) = {cosh:.2f}'
+                    else:
+                        error = 'Hyperbolic Cosine requires a single number.'
+
+                elif operation == 'tanh':
+                    if len(num_list) == 1:
+                        tanh = math.tanh(num_list[0])
+                        result = round(tanh, 2)
+                        explanation = f'tanh({num_list[0]:.2f}) = {tanh:.2f}'
+                    else:
+                        error = 'Hyperbolic Tangent requires a single number.'
 
                 # Below is run calculations on complex numbers
                 elif operation == 'complex':
@@ -359,7 +376,7 @@ def calculate(request):
         form = CalculatorForm()
 
     context={
-        'title': '',
+        'title': 'AfreXMatics: Your Personal Math Assistant - Calculate with Ease',
         'form': form,
         'result': result,
         'explanation': explanation,

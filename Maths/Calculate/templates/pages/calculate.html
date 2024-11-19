@@ -53,38 +53,100 @@
             </div>
 
             <!-- Main Content -->
-            <div class="flex-grow min-h-screen flex items-center justify-center mt-8 md:mt-2 px-4">
-                <div class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 w-md max-w-md rounded-3xl shadow-xl text-gray-200">
-                    <h1>Scientific Calculator</h1>
+            <div class="flex-grow min-h-screen max-h-screen flex items-center justify-center mt-8 md:mt-2 px-4">
+                <div class=" w-md max-w-md rounded-3xl shadow-lg text-gray-200">
+                    <div class='flex justify-between h-[5%] w-[96%] p-2 m-2'>
+                        <h1 class='bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-blue-500 to-purple-60 font-bold'>AfreXMatics Calculator</h1>
+                        <h1> {% now 'H:i A'%} </h1>
+                    </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Calculate</button>
-    </form>
-
-    {% if result %}
-        <h2>Result:</h2>
-        <p>{{ result|intcomma }}</p>
-        <h3>Step-by-Step Explanation:</h3>
-        <ul>
-            {% for step in explanation %}
-                <li>{{ step }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% if error %}
-        <h3 style="color: red;">{{ error }}</h3>
-    {% endif %}
+                    <div class='w-full p-2 m-2'>
+                        <form method='POST'>
+                            {% csrf_token %}
+                            <div class='-ml-2 mr-2 text-right'>
+                                {{ form.numbers|add_class:'w-full rounded-md py-6 px-6 outline-none transition-all duration-300 text-right text-gray-800 bg-gray-200 shadow-sm' }}
+                                {% if result %}
+                                    <div class='w-full rounded-md py-4 px-6 -mt-4 outline-none transition-all duration-300 text-gray-800 bg-gray-200 shadow-sm overflow-y-auto'>
+                                        {{ result|intcomma}}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class='text-center mt-4 p-2'>
+                                {% if error %}
+                                    <h3 class='text-red-500 mr-2'>{{ error }}</h3>
+                                {% endif %}
+                            </div>
+                            <div class='text-xs text-right space-y-1 p-2 text-green-800'>
+                                <h6 class='mr-24'>Enter numbers (comma-seperated)</h6>
+                                <h6 class='ml-3'> e.g 1, 2, 3 for multiple numbers or 5 for a single input</h6>
+                                <button type="submit">Calculate</button>
+                                {{form.operation}}
+                            </div>
+                            <div class="p-2">
+                                <div class="grid grid-cols-6 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> n! </button>
+                                    <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> ∣x∣ </button>
+                                    <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> diff </button>
+                                    <button type="button" onclick="appendNumber('DEL')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> int </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> C.I </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> S.I </button>
+                                </div>
+                                <div class="grid grid-cols-6 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> x<sup>2</sup> </button>
+                                    <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> √x </button>
+                                    <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> <sup>n</sup>&#8730;x </button>
+                                    <button type="button" onclick="appendNumber('DEL')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> x<sup>y</sup> </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> log₁₀ </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> ln </button>
+                                </div>
+                                <div class="grid grid-cols-6 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> hyp </button>
+                                    <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> adj </button>
+                                    <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> opp </button>
+                                    <button type="button" onclick="appendNumber('DEL')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> sin </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> cos </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> tan </button>
+                                </div>
+                                <div class="grid grid-cols-6 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> sinh </button>
+                                    <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> cosh </button>
+                                    <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> tanh </button>
+                                    <button type="button" onclick="appendNumber('DEL')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> arcsin </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> arccos </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> arctan </button>
+                                </div>
+                                <div class="grid grid-cols-5 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(7)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 7 </button>
+                                    <button type="button" onclick="appendNumber(8)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 8 </button>
+                                    <button type="button" onclick="appendNumber(9)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 9 </button>
+                                    <button type="button" onclick="appendNumber('DEL')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> DEL </button>
+                                    <button type="button" onclick="appendNumber('AC')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> AC </button>
+                                </div>
+                                <div class="grid grid-cols-5 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(4)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 4 </button>
+                                    <button type="button" onclick="appendNumber(5)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 5 </button>
+                                    <button type="button" onclick="appendNumber(6)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 6 </button>
+                                    <button type="button" onclick="appendNumber('X')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> X </button>
+                                    <button type="button" onclick="appendNumber('/')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> ÷ </button>
+                                </div>
+                                <div class="grid grid-cols-5 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-4">
+                                    <button type="button" onclick="appendNumber(1)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 1 </button>
+                                    <button type="button" onclick="appendNumber(2)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 2 </button>
+                                    <button type="button" onclick="appendNumber(3)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 3 </button>
+                                    <button type="button" onclick="appendNumber('+')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> + </button>
+                                    <button type="button" onclick="appendNumber('-')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> - </button>
+                                </div>
+                                <div class="grid grid-cols-5 gap-4 text-center text-base font-semibold text-green-800 mr-4 mb-2">
+                                    <button type="button" onclick="appendNumber(0)" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> 0 </button>
+                                    <button type="button" onclick="appendNumber('.')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> . </button>
+                                    <button type="button" onclick="appendNumber('EXP')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> EXP </button>
+                                    <button type="button" onclick="appendNumber('ANS')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> ANS </button>
+                                    <button type="button" onclick="appendNumber('=')" class="bg-green-50 hover:bg-green-100 rounded-lg py-2 transition-transform transform hover:scale-105 shadow-lg"> = </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            
-            
-        </div>
-    
-        <footer class='mx-auto'>
-            <h2 class='flex justify-center item-center text-sm text-green-900 mb-2 lg:ml-32'> &copy;AfreX.org {% now 'Y'%}</h2>
-        </footer>
     </body>
 </html>
