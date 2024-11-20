@@ -25,7 +25,7 @@ def calculate(request):
 
             try:
                 # Parse number list if applicable
-                num_list = [float(n) for n in numbers.split(',')] if numbers else []
+                num_list = [float(n) for n in numbers.split(' ')] if numbers else []
 
                 # Below covers basic arithmetic operations
                 if operation == 'add':
@@ -84,7 +84,7 @@ def calculate(request):
                         result = number ** (1 / root_value)
                         explanation = f'{root_value}√{number} = {result}'
                     except IndexError:
-                        error = "Please provide two numbers separated by a comma (number, root_value)."
+                        error = "Please provide two numbers separated by a space (number, root_value)."
                     except ValueError:
                         error = "Invalid input. Please ensure you enter valid numbers."
 
@@ -105,7 +105,7 @@ def calculate(request):
                         result = f'{formatted_result:.4f}'
                         explanation = f'log_{base_num} ({value}) = {result}'
                     except IndexError:
-                        error = "Please provide two numbers separated by a comma (base number, value)."
+                        error = "Please provide two numbers separated by a space (base number, value)."
                     except ValueError:
                         error = "Invalid input. Please ensure you enter valid numbers."
 
@@ -137,7 +137,7 @@ def calculate(request):
                         result = f'{formatted_result:.4f}'
                         explanation = f'√({base}^2 + {height}^2) = {result}'
                     except IndexError:
-                        error = "Please enter two numbers separated by a comma for Pythagoras' theorem (base, height)."
+                        error = "Please enter two numbers separated by a space for Pythagoras' theorem (base, height)."
                     except ValueError:
                         error = 'Invalid input. Please ensure you enter valid numbers.'
                 
@@ -154,7 +154,7 @@ def calculate(request):
                             result = f'{formatted_result:.4f}'
                             explanation = f'√({hypotenuse}^2 - {height}^2) = {result}'
                     except IndexError:
-                        error = "Please enter two numbers separated by a comma for finding the adjacent side (hypotenuse, height)."
+                        error = "Please enter two numbers separated by a space for finding the adjacent side (hypotenuse, height)."
                     except ValueError:
                         error = 'Invalid input. Please ensure you enter valid numbers.'
                     except ValueError as e:
@@ -173,7 +173,7 @@ def calculate(request):
                             result = f'{formatted_result:.4f}'
                             explanation = f'√({hypotenuse}^2 - {base}^2) = {result}'
                     except IndexError:
-                        error = "Please enter two numbers separated by a comma for finding the opposite side (hypotenuse, base)."
+                        error = "Please enter two numbers separated by a space for finding the opposite side (hypotenuse, base)."
                     except ValueError:
                         error = 'Invalid input. Please ensure you enter valid numbers.'
                     except ValueError as e:
@@ -270,7 +270,7 @@ def calculate(request):
                 elif operation == 'sinh':
                     if len(num_list) == 1:
                         sinh = math.sinh(num_list[0])
-                        result = round(sinh, 2)
+                        result = round(sinh, 4)
                         explanation = f'sinh({num_list[0]:.2f}) = {sinh:.2f}'
                     else:
                         error = 'Hyperbolic Sine requires a single number.'
@@ -278,7 +278,7 @@ def calculate(request):
                 elif operation == 'cosh':
                     if len(num_list) == 1:
                         cosh = math.cosh(num_list[0])
-                        result = round(cosh, 2)
+                        result = round(cosh, 4)
                         explanation = f'cosh({num_list[0]:.2f}) = {cosh:.2f}'
                     else:
                         error = 'Hyperbolic Cosine requires a single number.'
@@ -286,7 +286,7 @@ def calculate(request):
                 elif operation == 'tanh':
                     if len(num_list) == 1:
                         tanh = math.tanh(num_list[0])
-                        result = round(tanh, 2)
+                        result = round(tanh, 4)
                         explanation = f'tanh({num_list[0]:.2f}) = {tanh:.2f}'
                     else:
                         error = 'Hyperbolic Tangent requires a single number.'

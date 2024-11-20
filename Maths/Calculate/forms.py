@@ -6,9 +6,10 @@ from django.utils.safestring import mark_safe
 class CalculatorForm(forms.Form):
     # To accept general number input for many operations
     numbers = forms.CharField(
-            label = 'Enter numbers (comma-seperated)',
-            required = False,
-            help_text='Example: 1, 2, 3 for multiple numbers or 5 for a single input.'
+        required = False,
+        widget=forms.TextInput(attrs={
+            'id': 'numbers'  # Add the ID attribute here
+        })
     )
 
     # Choice of operation to select from so as to perform calculation
@@ -49,7 +50,6 @@ class CalculatorForm(forms.Form):
                 ('SI', 'Simple Interest'),
                 ('CI', 'Compound Interest'),
             ],
-            label = 'Select Operation'
     )
 
 
