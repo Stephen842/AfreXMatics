@@ -49,6 +49,8 @@ class CalculatorForm(forms.Form):
                 ('log_base', 'Logarithm with Other Base'),
                 ('SI', 'Simple Interest'),
                 ('CI', 'Compound Interest'),
+                ('expo', 'Exponential'),
+
             ],
     )
 

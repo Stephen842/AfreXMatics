@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 import math
 import cmath # For complex numbers
 import sympy 
-from .forms import CalculatorForm
-from .forms import BmiForm, CurrencyConverterForm
+from .forms import BmiForm, CurrencyConverterForm, CalculatorForm
 from .services import get_currency_choices, get_exchange_rate
 from decimal import Decimal
 
@@ -357,6 +356,23 @@ def calculate(request):
                         )
                     else:
                         error = 'Compound Interest requires exactly three inputs: Principal, Rate, and Time.'
+
+                # Below is to run exponential calculation
+                elif operation == 'expo':
+                    if len(num_list) == 2:
+                        try:
+                            base = float(num_list[0]) # Base should be a float
+                            exponent = int(num_list[1]) # Exponent should be a integer
+
+                            # Perform the exponential calculation (base * 10^exponent)
+                            formatted_result = base * (10 ** exponent)
+
+                            # Round result to 4 decimal places for clarity
+                            result = round(formatted_result, 4)
+                        except ValueError:
+                            error = 'Invalid input. Please provide valid numbers for base and exponent.'
+                    else:
+                        error = 'Exponential operation requires exactly two inputs: base and exponent.'
 
                 # Below is to run calculation on ordinary differential equation
                 elif operation == 'ode':
